@@ -114,14 +114,11 @@ export class LinkedList {
         if (pointer === null) {
             return '()';
         };
-        while (pointer !== null) {
-            if (pointer.nextNode === null) {
-                string = string + `( ${pointer.value} )`;
-            } else {
-                string = string + `( ${pointer.value} ) -> `;
-            };    
+        while (pointer !== null) {  
+            string = string + `( ${pointer.value} ) -> `;
             pointer = pointer.nextNode;
         };
+        string = string + 'null'
         return string;
     }
 };
