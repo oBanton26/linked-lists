@@ -75,7 +75,21 @@ export class LinkedList {
         } else {
             const penultimate = this.at(length - 2);
             penultimate.nextNode = null;
+        };
+    };
+
+    contains (value) {
+        let pointer = this.head;
+        if (pointer == null) {
+            return false;
         }
+        while (pointer !== null) {
+            if (pointer.value === value) {
+                return true;
+            };
+            pointer = pointer.nextNode
+        };
+        return false;
     }
 };
 
