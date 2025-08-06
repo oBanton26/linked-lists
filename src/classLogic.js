@@ -65,6 +65,18 @@ export class LinkedList {
             return pointer;
         };
     };
+
+    pop () {
+        const length = this.size();
+        if (length === 0) {
+            return;
+        } else if (length === 1) {
+            this.head = null;
+        } else {
+            const penultimate = this.at(length - 2);
+            penultimate.nextNode = null;
+        }
+    }
 };
 
 class Node {
