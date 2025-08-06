@@ -6,6 +6,5 @@ list.append('caca');
 list.prepend('chiasse');
 list.prepend('bouse');
 list.append('chichi?');
-list.pop();
 console.log(list);
-console.log(list.contains('chiasse'));
+console.log(list.find('chichi?'));

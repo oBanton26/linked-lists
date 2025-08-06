@@ -90,6 +90,22 @@ export class LinkedList {
             pointer = pointer.nextNode
         };
         return false;
+    };
+
+    find (value) {
+        let pointer = this.head;
+        let counter = 0;
+        if (pointer == null) {
+            return null;
+        }
+        while (pointer !== null) {
+            if (pointer.value === value) {
+                return counter;
+            };
+            pointer = pointer.nextNode;
+            counter++;
+        };
+        return null;
     }
 };
 
