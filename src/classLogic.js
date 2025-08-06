@@ -4,10 +4,13 @@ export class LinkedList {
     };
 
     append (value) {
+        if (this.head == null) {
+            this.head = new Node(value);
+        };
         let pointer = this.head;
-        // while (pointer !== null) {
-        //     pointer = pointer.nextNode;
-        // };
+        while (pointer.nextNode !== null) {
+            pointer = pointer.nextNode;
+        };
         pointer.nextNode = new Node(value);
         console.log(this.head.nextNode);
     };
