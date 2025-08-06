@@ -33,9 +33,41 @@ export class LinkedList {
             return counter;
         };
     };
+
+    tail () {
+        if (this.head == null) {
+            return null;
+        } else {
+            let pointer = this.head;
+            while (pointer.nextNode !== null) {
+                pointer = pointer.nextNode;
+            };
+            return pointer;
+        };
+    };
+
+    at (index) {
+        let pointer = this.head;
+        if (index === 0) {
+            return pointer;
+        } else if (index === this.size() - 1) {
+            return this.tail();
+        } else if (index > this.size() - 1) {
+            return 'Index too high, the list is not that long'
+        } else if (index < 0) {
+            return "The index can't be negative";
+        } else {
+            for (let i = 1; i <= index; i++) {
+                if (pointer.nextNode !== null) {
+                    pointer = pointer.nextNode
+                };
+            };
+            return pointer;
+        };
+    };
 };
 
-export class Node {
+class Node {
     constructor (value, nextNode = null) {
         this.value = value;
         this.nextNode = nextNode;
