@@ -5,15 +5,19 @@ export class LinkedList {
 
     append (value) {
         if (this.head == null) {
-            this.head = new Node(value);
+            this.prepend(value);
+        } else {
+            let pointer = this.head;
+            while (pointer.nextNode !== null) {
+                pointer = pointer.nextNode;
+            };
+            pointer.nextNode = new Node(value);
         };
-        let pointer = this.head;
-        while (pointer.nextNode !== null) {
-            pointer = pointer.nextNode;
-        };
-        pointer.nextNode = new Node(value);
-        console.log(this.head.nextNode);
     };
+
+    prepend (value) {
+        this.head = new Node(value, this.head);
+    }
 };
 
 export class Node {
