@@ -7,4 +7,4 @@ list.prepend('chiasse');
 list.prepend('bouse');
 list.append('chichi?');
 console.log(list);
-console.log(list.find('chichi?'));
+console.log(list.toString());

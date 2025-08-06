@@ -19,7 +19,7 @@ export class LinkedList {
         this.head = new Node(value, this.head);
     };
 
-    size () {
+    size() {
         let counter = 0;
         if (this.head == null) {
             return counter;
@@ -34,7 +34,7 @@ export class LinkedList {
         };
     };
 
-    tail () {
+    tail() {
         if (this.head == null) {
             return null;
         } else {
@@ -66,7 +66,7 @@ export class LinkedList {
         };
     };
 
-    pop () {
+    pop() {
         const length = this.size();
         if (length === 0) {
             return;
@@ -106,6 +106,23 @@ export class LinkedList {
             counter++;
         };
         return null;
+    };
+
+    toString () {
+        let string = '';
+        let pointer = this.head;
+        if (pointer === null) {
+            return '()';
+        };
+        while (pointer !== null) {
+            if (pointer.nextNode === null) {
+                string = string + `( ${pointer.value} )`;
+            } else {
+                string = string + `( ${pointer.value} ) -> `;
+            };    
+            pointer = pointer.nextNode;
+        };
+        return string;
     }
 };
 
