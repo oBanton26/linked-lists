@@ -120,7 +120,37 @@ export class LinkedList {
         };
         string = string + 'null'
         return string;
-    }
+    };
+
+    insertAt (value, index) {
+        const length = this.size();
+        if (index === 0) {
+            this.prepend(value);
+        } else if (index === length - 1) {
+            this.append(value);
+        } else if (index >= length || index < 0) {
+            console.log('The index is out of limit');
+        } else {
+            const currentNodeAtIndex = this.at(index);
+            const nodeBeforeIndex = this.at(index-1);
+            const insertedNode = new Node(value, currentNodeAtIndex);
+            nodeBeforeIndex.nextNode = insertedNode;
+        };
+    };
+    
+    removeAt (index) {
+        const length = this.size();
+        if (index >= length || index < 0) {
+            console.log('The index is out of limit');
+        } else if (index === 0) {
+            const secondNode = this.head.nextNode
+            this.head = secondNode;
+        } else {
+            const nodeBefore = this.at(index - 1);
+            const nodeAfter = this.at(index + 1);
+            nodeBefore.nextNode = nodeAfter;
+        };
+    };
 };
 
 class Node {
